@@ -1,24 +1,14 @@
 import styled from 'styled-components';
 import Head from 'next/head';
 
-const Title = styled.h1`
-  font-size: 50px;
-  font-weight: 300;
-  color: ${({ theme }) => theme.colors.title};
-`;
+import Logo from '../components/Logo';
+import Info from '../components/Info';
 
-const DeerImg = styled.img`
-  width: 100%;
-  height: auto;
-  margin: -5rem;
-`;
-
-const Logo = styled.div`
-  width: 70vw;
+const StyledMain = styled.main`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
+  padding-right: 2em;
 `;
 
 export default function Home() {
@@ -33,12 +23,10 @@ export default function Home() {
         <link rel="icon" href="/deer-icon.png" />
       </Head>
 
-      <main>
-        <Logo>
-          <Title>LSDEER</Title>
-          <DeerImg src="/deer.svg" />
-        </Logo>
-      </main>
+      <StyledMain>
+        <Logo />
+        <Info />
+      </StyledMain>
     </div>
   );
 }
