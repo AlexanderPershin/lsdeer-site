@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: calc(0.5em + 1vw);
   }
-  html, body, #__next {
+  html, body, #__next, .container {
     height: 100%;
   }
   body {

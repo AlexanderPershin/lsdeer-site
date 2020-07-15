@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import Head from 'next/head';
 
 import Logo from '../components/Logo';
 import Info from '../components/Info';
+
+import GHLogo from '../components/GHLogo';
 
 const StyledMain = styled.main`
   display: flex;
@@ -15,6 +16,39 @@ const StyledMain = styled.main`
   }
 `;
 
+const StyledFooter = styled.footer`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 4rem;
+`;
+
+const StyledViewCode = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.infoLink};
+  font-size: 1.1rem;
+  font-weight: 300;
+  &:link {
+    color: green;
+  }
+  &:visited {
+    color: gray;
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #388ce0;
+  }
+  &:active {
+    color: #ffffff;
+  }
+`;
+
+const StyledGHLogo = styled(GHLogo)`
+  height: 1.1rem;
+  fill: inherit;
+`;
+
 export default function Home() {
   return (
     <div className="container">
@@ -22,6 +56,15 @@ export default function Home() {
         <Logo />
         <Info />
       </StyledMain>
+      <StyledFooter>
+        <StyledViewCode
+          href="https://github.com/AlexanderPershin/lsdeer"
+          target="_blank"
+        >
+          View code on GitHub{' '}
+          <StyledGHLogo fillColor="#3e80c2" height="1.1rem" width="1.1rem" />
+        </StyledViewCode>
+      </StyledFooter>
     </div>
   );
 }
