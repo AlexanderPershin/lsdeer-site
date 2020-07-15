@@ -1,4 +1,5 @@
 import App from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 const theme = {
   colors: {
     primary: '#0070f3',
-    title: '#656565',
+    title: '#ffffff',
     logo: '#363636',
     downloadBtn: '#4996e3',
     infoLink: '#3e80c2',
@@ -43,10 +44,20 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-        <GlobalStyle />
-      </ThemeProvider>
+      <>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
+            rel="stylesheet"
+          />
+          <title>lsdeer</title>
+          <link rel="icon" href="/deer-icon.png" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+          <GlobalStyle />
+        </ThemeProvider>
+      </>
     );
   }
 }

@@ -6,23 +6,18 @@ import Info from '../components/Info';
 
 const StyledMain = styled.main`
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  padding-right: 2em;
+  & > div:first-child {
+    width: 70vw;
+  }
+  & > div:last-child {
+    width: 30vw;
+    padding-right: 4em;
+  }
 `;
 
 export default function Home() {
   return (
     <div className="container">
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
-          rel="stylesheet"
-        />
-        <title>lsdeer</title>
-        <link rel="icon" href="/deer-icon.png" />
-      </Head>
-
       <StyledMain>
         <Logo />
         <Info />
