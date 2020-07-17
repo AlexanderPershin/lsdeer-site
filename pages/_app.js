@@ -1,12 +1,14 @@
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+import InfoLink from '../components/InfoLink';
 
 const GlobalStyle = createGlobalStyle`
   :root {
     font-size: calc(0.5em + 1vw);
   }
-  html, body, #__next, .container {
+  html, body, #__next {
     height: 100%;
   }
   body {
@@ -40,6 +42,18 @@ const theme = {
   },
 };
 
+const LinksWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 4rem;
+  & > * + * {
+    margin-left: 0.5em;
+    margin-top: 0;
+  }
+`;
+
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
@@ -54,6 +68,12 @@ export default class MyApp extends App {
           <link rel="icon" href="/deer-icon.png" />
         </Head>
         <ThemeProvider theme={theme}>
+          <LinksWrapper>
+            <InfoLink href="/" label="Home" />
+            <InfoLink href="/features" label="Features" />
+            <InfoLink href="/screenshots" label="Screenshots" />
+            <InfoLink href="/faq" label="FAQ" />
+          </LinksWrapper>
           <Component {...pageProps} />
           <GlobalStyle />
         </ThemeProvider>

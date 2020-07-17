@@ -7,6 +7,7 @@ const StyledA = styled.a`
   color: ${({ theme }) => theme.colors.infoLink};
   font-size: 1.5rem;
   font-weight: 500;
+  letter-spacing: -0.05em;
   &:link {
     color: green;
   }

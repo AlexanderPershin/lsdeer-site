@@ -17,9 +17,9 @@ const StyledMain = styled.main`
 `;
 
 const StyledFooter = styled.footer`
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  width: 100%;
+  text-align: right;
+  margin-top: 3rem;
   padding-right: 4rem;
 `;
 
@@ -32,7 +32,7 @@ const StyledViewCode = styled.a`
     color: green;
   }
   &:visited {
-    color: gray;
+    color: ${({ theme }) => theme.colors.infoLink};
   }
   &:hover {
     cursor: pointer;
@@ -41,6 +41,9 @@ const StyledViewCode = styled.a`
   }
   &:active {
     color: #ffffff;
+  }
+  & > svg > path {
+    fill: inherit;
   }
 `;
 

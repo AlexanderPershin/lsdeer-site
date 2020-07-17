@@ -12,7 +12,7 @@ const Title = styled.h1`
 const DeerImg = styled.img`
   width: 100%;
   min-height: 25rem;
-  margin: -5em;
+  margin: -7em;
 `;
 
 const StyledLogo = styled.div`

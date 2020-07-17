@@ -9,19 +9,8 @@ const StyledInfo = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-`;
-
-const LinksWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: flex-end;
-  align-items: center;
-  & > * + * {
-    margin-left: 1rem;
-    margin-top: 0;
-  }
+  align-items: flex-end;
 `;
 
 const MockupImg = styled.picture`
@@ -34,17 +23,12 @@ const MockupImg = styled.picture`
 const Info = () => {
   return (
     <StyledInfo>
-      <DownloadBtn />
       <MockupImg>
         <source media="(min-width:2000px)" srcSet="/mockup_large.png" />
         <source media="(max-width:2000px)" srcSet="/mockup_small.png" />
         <img src="/mockup_small.png" alt="laptop" />
       </MockupImg>
-      <LinksWrapper>
-        <InfoLink href="/features" label="Features" />
-        <InfoLink href="/screenshots" label="Screenshots" />
-        <InfoLink href="/faq" label="FAQ" />
-      </LinksWrapper>
+      <DownloadBtn />
     </StyledInfo>
   );
 };
