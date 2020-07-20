@@ -1,29 +1,54 @@
 import App from 'next/app';
 import Head from 'next/head';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled, {
+  ThemeProvider,
+  createGlobalStyle,
+  keyframes,
+} from 'styled-components';
 
 import InfoLink from '../components/InfoLink';
+import GHLogo from '../components/GHLogo';
 
 const GlobalStyle = createGlobalStyle`
   :root {
     font-size: calc(0.5em + 1vw);
   }
-  html, body, #__next {
-    height: 100%;
+
+  .container {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-top: 3.6rem;
+    @media (max-width: 40rem) {
+      padding-top: 5.6rem;
+    }
   }
   body {
     font-family: ${({ theme }) => theme.fonts.primary};
     background-color: ${({ theme }) => theme.colors.bg};
     margin: 0;
     padding: 0;
+    position: relative;
+    &::-webkit-scrollbar {
+      width: 1rem;
+      background-color: #b0b0b0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #808080;
+      border-left: 2px solid #b0b0b0;
+      border-right: 2px solid #b0b0b0;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #606060;
+    }
   }
   *,*:before,*:after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-  }
-  * + * {
-      margin-top: 1rem;
   }
 `;
 
@@ -33,7 +58,7 @@ const theme = {
     title: '#ffffff',
     logo: '#363636',
     downloadBtn: '#4996e3',
-    infoLink: '#3e80c2',
+    infoLink: '#eeeeee',
     mainText: '#312e2e',
     bg: '#c0c0c0',
   },
@@ -42,16 +67,97 @@ const theme = {
   },
 };
 
+const slideIn = keyframes`
+  from {
+    transform: translateX(3rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
 const LinksWrapper = styled.div`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 4rem;
+  padding-right: 4rem;
+  padding-top: 2.5rem;
+  background-color: #cdcdcd;
+  z-index: 100;
+
+  & > * {
+    animation: ${slideIn} 5s linear 0s 1;
+    transition: transform 5s linear;
+  }
   & > * + * {
     margin-left: 0.5em;
     margin-top: 0;
   }
+
+  @media (max-width: 40rem) {
+    & > * {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  }
+`;
+
+const StyledFooter = styled.footer`
+  width: 100%;
+  height: 3rem;
+  flex: 0 1 3rem;
+  text-align: right;
+  margin-top: 3rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  background-color: #a0a0a0;
+  font-size: inherit;
+  @media (max-width: 40rem) {
+    height: 7rem;
+    text-align: center;
+    padding-top: 0rem;
+    padding-right: 0rem;
+    & > a {
+      font-size: 2rem;
+    }
+    & > a > svg {
+      display: none;
+    }
+  }
+`;
+
+const StyledViewCode = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.infoLink};
+  font-size: 1.1rem;
+  font-weight: 300;
+  &:link {
+    color: ${({ theme }) => theme.colors.infoLink};
+  }
+  &:visited {
+    color: ${({ theme }) => theme.colors.infoLink};
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: ${({ theme }) => theme.colors.infoLink};
+  }
+  &:active {
+    color: ${({ theme }) => theme.colors.infoLink};
+  }
+  & > svg > path {
+    fill: ${({ theme }) => theme.colors.infoLink};
+  }
+`;
+
+const StyledGHLogo = styled(GHLogo)`
+  height: 1.1rem;
+  fill: ${({ theme }) => theme.colors.infoLink};
 `;
 
 export default class MyApp extends App {
@@ -68,14 +174,30 @@ export default class MyApp extends App {
           <link rel="icon" href="/deer-icon.png" />
         </Head>
         <ThemeProvider theme={theme}>
-          <LinksWrapper>
-            <InfoLink href="/" label="Home" />
-            <InfoLink href="/features" label="Features" />
-            <InfoLink href="/screenshots" label="Screenshots" />
-            <InfoLink href="/faq" label="FAQ" />
-          </LinksWrapper>
-          <Component {...pageProps} />
-          <GlobalStyle />
+          <div className="container">
+            <GlobalStyle />
+            <LinksWrapper>
+              <InfoLink href="/" label="Home" />
+              <InfoLink href="/features" label="Features" />
+              <InfoLink href="/screenshots" label="Screenshots" />
+              <InfoLink href="/faq" label="FAQ" />
+            </LinksWrapper>
+            <Component {...pageProps} />
+
+            <StyledFooter>
+              <StyledViewCode
+                href="https://github.com/AlexanderPershin/lsdeer"
+                target="_blank"
+              >
+                View code on GitHub{' '}
+                <StyledGHLogo
+                  fillColor="#eeeeee"
+                  height="1.1rem"
+                  width="1.1rem"
+                />
+              </StyledViewCode>
+            </StyledFooter>
+          </div>
         </ThemeProvider>
       </>
     );

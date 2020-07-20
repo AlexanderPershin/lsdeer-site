@@ -1,8 +1,7 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import DownloadBtn from './DownloadBtn';
-import InfoLink from './InfoLink';
 
 const StyledInfo = styled.div`
   padding-top: 4rem;
@@ -11,12 +10,20 @@ const StyledInfo = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  @media (max-width: 42rem) {
+    justify-content: stretch;
+    align-items: stretch;
+  }
 `;
 
 const MockupImg = styled.picture`
   width: 20vw;
+  transform: translateX(1rem);
   & > img {
     width: 100%;
+  }
+  @media (max-width: 42rem) {
+    display: none;
   }
 `;
 

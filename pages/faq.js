@@ -2,7 +2,7 @@ import React from 'react';
 
 const FAQ = () => {
   return (
-    <div className="container">
+    <div>
       <h1>FAQ</h1>
     </div>
   );
