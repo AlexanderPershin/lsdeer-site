@@ -10,10 +10,10 @@ const StyledA = styled.a`
   font-size: 1.5rem;
   line-height: 0.7;
   &:link {
-    color: green;
+    color: ${({ theme }) => theme.colors.infoLink};
   }
   &:visited {
-    color: gray;
+    color: ${({ theme }) => theme.colors.infoLink};
   }
   &:hover {
     cursor: pointer;
@@ -21,7 +21,7 @@ const StyledA = styled.a`
     color: #388ce0;
   }
   &:active {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.infoLink};
   }
 `;
 

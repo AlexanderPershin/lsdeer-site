@@ -49,6 +49,24 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      color: #848484;
+  }
+  a {
+    color: #388ce0;
+    &:link {
+      color: #388ce0;
+    }
+    &:visited {
+      color: ${({ theme }) => theme.colors.infoLink};
+    }
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #388ce0;
+    }
+    &:active {
+      color: ${({ theme }) => theme.colors.infoLink};
+    }
   }
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Router from 'next/router';
 
 import DownloadBtn from './DownloadBtn';
 
@@ -28,6 +29,10 @@ const MockupImg = styled.picture`
 `;
 
 const Info = () => {
+  const handleDownload = () => {
+    Router.push('/downloads');
+  };
+
   return (
     <StyledInfo>
       <MockupImg>
@@ -35,7 +40,7 @@ const Info = () => {
         <source media="(max-width:2000px)" srcSet="/mockup_small.png" />
         <img src="/mockup_small.png" alt="laptop" />
       </MockupImg>
-      <DownloadBtn />
+      <DownloadBtn onClick={handleDownload}>Download</DownloadBtn>
     </StyledInfo>
   );
 };
