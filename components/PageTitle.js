@@ -7,6 +7,7 @@ const StyledTitle = styled.h1`
   font-weight: 100;
   color: ${({ theme }) => theme.colors.title};
   letter-spacing: 0.1em;
+  user-select: none;
   @media (max-width: 42rem) {
     height: 4rem;
     text-align: center;

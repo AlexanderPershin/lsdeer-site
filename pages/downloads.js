@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Router from 'next/router';
 
 import PageContainer from '../components/PageContainer';
 import PageTitle from '../components/PageTitle';
