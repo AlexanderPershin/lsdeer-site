@@ -16,10 +16,23 @@ const ModalWrap = styled.div`
 `;
 
 const ModalInner = styled.div`
-  flex: 0 1 0%;
-  background-color: white;
+  flex: 1 1 0%;
+  background-color: transparent;
   line-height: 0;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > img {
+    width: ${({ theme }) => theme.sizes.screenshotWidth}px;
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.menuShadowOffsetX}px ${theme.shadows.menuShadowOffsetY}px ${theme.shadows.menuShadowBlur}px ${theme.shadows.menuShadowSpread}px ${theme.shadows.menuShadowColor}`};
+  }
+  @media (max-width: 800px) {
+    & > img {
+      width: 100%;
+    }
+  }
 `;
 
 const CloseBtn = styled.span`

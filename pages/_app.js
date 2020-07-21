@@ -83,6 +83,16 @@ const theme = {
   fonts: {
     primary: "'Roboto', sans-serif",
   },
+  sizes: {
+    screenshotWidth: 800,
+  },
+  shadows: {
+    menuShadowColor: 'rgba(0,0,0,0.5)',
+    menuShadowOffsetX: 1,
+    menuShadowOffsetY: 2,
+    menuShadowBlur: 2,
+    menuShadowSpread: 2,
+  },
 };
 
 const slideIn = keyframes`

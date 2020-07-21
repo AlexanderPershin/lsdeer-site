@@ -26,21 +26,27 @@ const FAQ = () => {
       <PageTitle>FAQ</PageTitle>
       <FAQList>
         <Q>
-          Question: I faced infinite loading, how did it happen and what should
-          I do?
+          <b>Question</b>: I faced infinite loading, how did it happen and what
+          should I do?
         </Q>
         <Q>
-          Answer: Node.js error writing your tabs.json file. Press ctrl+R to
-          refresh LSDEER window
+          <b>Answer:</b> Node.js error writing your tabs.json file. Press ctrl+R
+          to refresh LSDEER window
         </Q>
         <Q>
-          Question: After I changed my color scheme and restarted application I
-          see default theme again
+          <b>Question</b>: After I changed my color scheme and restarted
+          application I see default theme again
         </Q>
-        <Q>Answer: When make changes to settings always press "apply" button</Q>
-        <Q>Question: I faced unknown bug what should I do?</Q>
         <Q>
-          Answer: Almost any problem can be solved by pressing ctrl+R &#128578;
+          <b>Answer:</b> When make changes to settings always press "apply"
+          button
+        </Q>
+        <Q>
+          <b>Question</b>: I faced unknown bug what should I do?
+        </Q>
+        <Q>
+          <b>Answer:</b> Almost any problem can be solved by pressing ctrl+R
+          &#128578;
         </Q>
       </FAQList>
     </PageContainer>
