@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const ModalWrap = styled.div`
@@ -37,6 +37,21 @@ const CloseBtn = styled.span`
 `;
 
 const ScreenshotModal = ({ show = false, onClose = () => {}, imgSrc }) => {
+  const handleEsc = (e) => {
+    if (e.which === 27) {
+      onClose();
+    }
+    return;
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEsc);
+
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   return show ? (
     <ModalWrap onClick={onClose}>
       <ModalInner>
