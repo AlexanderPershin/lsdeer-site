@@ -30,7 +30,10 @@ const Downloads = () => {
       <PageTitle>Downloads</PageTitle>
       <DownloadsTable>
         <PageTitle sub={true}>Windows</PageTitle>
-        <a href="/installers/lsdeer Setup 0.1.0.exe -remove-this" download>
+        <a
+          href="https://github.com/AlexanderPershin/lsdeer/releases/download/v0.1.0/lsdeer.Setup.0.1.0.exe"
+          download
+        >
           <DownloadBtn>Download for Windows 10 x64</DownloadBtn>
         </a>
 
