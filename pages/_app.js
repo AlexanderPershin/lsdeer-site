@@ -249,6 +249,10 @@ export default class MyApp extends App {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
             rel="stylesheet"
           />
+          <meta
+            name="google-site-verification"
+            content="jJItWWfpL8LwSJvpotu5JB1WwVU15-iw3BlgHeOuGPY"
+          />
           <title>lsdeer</title>
           <link rel="icon" href="/deer-icon.png" />
         </Head>
