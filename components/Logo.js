@@ -38,17 +38,36 @@ const StyledLogo = styled.div`
   align-items: center;
 `;
 
-const StyledDesc = styled.span`
+const StyledDesc = styled.a`
   font-size: 1.5rem;
   color: #848484;
   font-weight: bold;
+  position: relative;
+  z-index: 500;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > span {
+    color: inherit;
+    margin-right: 0.5rem;
+  }
+  & > img {
+    height: 1.5rem;
+  }
 `;
 
 const Logo = () => {
   return (
     <StyledLogo>
       <Title>LSDEER</Title>
-      <StyledDesc>File manager</StyledDesc>
+      <StyledDesc
+        href="https://web.facebook.com/groups/3507548812624709"
+        target="_blank"
+        title="Go To Official Facebook Group"
+      >
+        <span>File manager</span> <img src="/info.svg" alt="" />
+      </StyledDesc>
       <DeerImg src="/deer.svg" />
     </StyledLogo>
   );

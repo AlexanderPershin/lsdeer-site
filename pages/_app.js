@@ -6,6 +6,35 @@ import styled, {
   keyframes,
 } from 'styled-components';
 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  FacebookIcon,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+  FacebookShareCount,
+  TwitterIcon,
+  VKIcon,
+  RedditIcon,
+  LinkedinIcon,
+  WhatsappIcon,
+  EmailIcon,
+} from 'react-share';
+
 import InfoLink from '../components/InfoLink';
 import GHLogo from '../components/GHLogo';
 
@@ -136,26 +165,20 @@ const LinksWrapper = styled.div`
 `;
 
 const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   height: 3rem;
   flex: 0 1 3rem;
   text-align: right;
   margin-top: 3rem;
   padding-right: 4rem;
-  padding-top: 1rem;
   background-color: #a0a0a0;
   font-size: inherit;
-  @media (max-width: 40rem) {
-    height: 7rem;
-    text-align: center;
-    padding-top: 0rem;
-    padding-right: 0rem;
-    & > a {
-      font-size: 2rem;
-    }
-    & > a > svg {
-      display: none;
-    }
+  & > * {
+    flex: 1;
   }
 `;
 
@@ -164,6 +187,7 @@ const StyledViewCode = styled.a`
   color: ${({ theme }) => theme.colors.infoLink};
   font-size: 1.1rem;
   font-weight: 300;
+  flex: 1 1 10rem;
   &:link {
     color: ${({ theme }) => theme.colors.infoLink};
   }
@@ -181,16 +205,43 @@ const StyledViewCode = styled.a`
   & > svg > path {
     fill: ${({ theme }) => theme.colors.infoLink};
   }
+  & > span {
+    color: inherit;
+    margin-right: 0.5rem;
+  }
+  @media (max-width: 40rem) {
+    flex: 1 1 3rem;
+    & > span {
+      display: none;
+    }
+  }
 `;
 
 const StyledGHLogo = styled(GHLogo)`
   height: 1.1rem;
   fill: ${({ theme }) => theme.colors.infoLink};
+  @media (max-width: 40rem) {
+    height: 1.5rem;
+  }
+`;
+
+const ShareBtns = styled.div`
+  flex: 1 1 10rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+  & > * + * {
+    margin-left: 0.5rem;
+  }
 `;
 
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
+    const shareUrl = 'https://lsdeer.vercel.app/';
+    const title = 'lsdeer - file manager';
+
     return (
       <>
         <Head>
@@ -210,14 +261,69 @@ export default class MyApp extends App {
               <InfoLink href="/screenshots" label="Screenshots" />
               <InfoLink href="/faq" label="FAQ" />
             </LinksWrapper>
+
             <Component {...pageProps} />
 
             <StyledFooter>
+              <ShareBtns>
+                <FacebookShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <FacebookIcon size={32} />
+                </FacebookShareButton>
+                <TwitterShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <TwitterIcon size={32} />
+                </TwitterShareButton>
+                <RedditShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <RedditIcon size={32} />
+                </RedditShareButton>
+                <WhatsappShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <WhatsappIcon size={32} />
+                </WhatsappShareButton>
+                <LinkedinShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <LinkedinIcon size={32} />
+                </LinkedinShareButton>
+                <VKShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <VKIcon size={32} />
+                </VKShareButton>
+                <EmailShareButton
+                  subject="Lsdeer"
+                  body="customizable file manager"
+                  url={shareUrl}
+                  quote={title}
+                  className="Demo__some-network__share-button"
+                >
+                  <EmailIcon size={32} />
+                </EmailShareButton>
+              </ShareBtns>
+
               <StyledViewCode
                 href="https://github.com/AlexanderPershin/lsdeer"
                 target="_blank"
               >
-                View code on GitHub{' '}
+                <span>View code on GitHub</span>
                 <StyledGHLogo
                   fillColor="#eeeeee"
                   height="1.1rem"
